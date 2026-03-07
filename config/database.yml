@@ -1,0 +1,35 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host:     <%= ENV.fetch("DB_HOST", "localhost") %>
+  port:     <%= ENV.fetch("DB_PORT", 5432) %>
+  username: <%= ENV.fetch("DB_USERNAME", "postgres") %>
+  password: <%= ENV.fetch("DB_PASSWORD", "admin") %>
+  pool:     <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+
+development:
+  <<: *default
+  database: <%= ENV.fetch("DB_NAME_DEVELOPMENT", "appointment_booking_development") %>
+
+test:
+  <<: *default
+  database: <%= ENV.fetch("DB_NAME_TEST", "appointment_booking_test") %>
+
+production:
+  primary: &primary_production
+    <<: *default
+    database: <%= ENV.fetch("DB_NAME_PRODUCTION", "appointment_booking_production") %>
+    username: <%= ENV.fetch("DB_USERNAME", "postgres") %>
+    password: <%= ENV.fetch("DB_PASSWORD") %>
+  cache:
+    <<: *primary_production
+    database: <%= ENV.fetch("DB_NAME_PRODUCTION", "appointment_booking_production") %>_cache
+    migrations_paths: db/cache_migrate
+  queue:
+    <<: *primary_production
+    database: <%= ENV.fetch("DB_NAME_PRODUCTION", "appointment_booking_production") %>_queue
+    migrations_paths: db/queue_migrate
+  cable:
+    <<: *primary_production
+    database: <%= ENV.fetch("DB_NAME_PRODUCTION", "appointment_booking_production") %>_cable
+    migrations_paths: db/cable_migrate

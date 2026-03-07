@@ -1,0 +1,20 @@
+development:
+  clients:
+    default:
+      uri: <%= ENV.fetch("MONGODB_URI", "mongodb://admin:admin@localhost:27018/master?authSource=admin") %>
+  options:
+    raise_not_found_error: false
+
+test:
+  clients:
+    default:
+      uri: <%= ENV.fetch("MONGODB_URI_TEST", "mongodb://admin:admin@localhost:27018/master_test?authSource=admin") %>
+  options:
+    raise_not_found_error: false
+
+production:
+  clients:
+    default:
+      uri: <%= ENV.fetch("MONGODB_URI") { raise "MONGODB_URI must be set in production" } %>
+  options:
+    raise_not_found_error: false

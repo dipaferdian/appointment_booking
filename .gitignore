@@ -1,0 +1,53 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all environment files (except templates).
+.env*
+!.env.example
+
+# Ignore the default SQLite database.
+/db/*.sqlite3
+/db/*.sqlite3-*
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+/config/credentials/*.key
+
+# Rails storage (uploads, etc.)
+/storage/*
+!/storage/.keep
+
+# Node modules (if any)
+/node_modules
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# RSpec
+/spec/examples.txt
+
+# Coverage
+/coverage/
+
+# Bootsnap cache
+/tmp/cache/
+
+# Mongoid
+mongoid.yml.lock
