@@ -39,7 +39,7 @@ gem "image_processing", "~> 1.2"
 gem "mongoid", "~> 9.0"
 
 # JWT authentication
-gem "jwt", "~> 2.9"
+gem "jwt", "~> 3.1"
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin Ajax possible
 # gem "rack-cors"
