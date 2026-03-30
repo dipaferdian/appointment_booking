@@ -51,3 +51,7 @@
 
 # Mongoid
 mongoid.yml.lock
+
+# Polymer / Frontend build output
+/public/js/
+*.map
