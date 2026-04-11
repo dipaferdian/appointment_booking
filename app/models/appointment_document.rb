@@ -11,7 +11,7 @@ class AppointmentDocument
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  store_in collection: "appointments"
+  store_in collection: "appointment_booking"
 
   field :pg_id,       type: Integer  # Reference back to PostgreSQL appointments.id
   field :doctor_id,   type: String
